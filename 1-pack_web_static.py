@@ -1,4 +1,4 @@
-#!/usr/bin/env/python3
+#!/usr/bin/python3
 """
  fabric script based on the task 0 file that creates and distributes as archive to the webservers
 """
