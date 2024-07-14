@@ -8,6 +8,8 @@ import os
 
 # Update the env.hosts variable with your server details
 env.hosts = ['ubuntu@3.83.253.53', 'ubuntu@100.26.163.202']
+env.user = 'ubuntu'
+env.key_filename = '/root/.ssh/id_rsa'  # Use the correct path
 
 def do_deploy(archive_path):
     """
@@ -21,7 +23,7 @@ def do_deploy(archive_path):
         archive_filename = os.path.basename(archive_path)
         archive_without_ext = archive_filename.split('.')[0]
         release_folder = f"/data/web_static/releases/{archive_without_ext}"
-        
+
         put(archive_path, f"/tmp/{archive_filename}")
 
         # Uncompress the archive to the folder /data/web_static/releases/<archive filename without extension> on the web server
