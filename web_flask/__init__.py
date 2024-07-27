@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-A simple Flask web application,
-that listens on 0.0.0.0,port 5000
+A simple Flask web application,that listens on 0.0.0.0,port 5000
 and displays 'Hello HBNB!' on the root route.
 """
 
