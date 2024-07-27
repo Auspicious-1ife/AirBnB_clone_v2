@@ -15,3 +15,11 @@ def hello_hbnb():
     Route that returns 'Hello HBNB!'
     """
     return "Hello HBNB!"
+
+
+@app.route('/hbnb', strict_slashes=False)
+def hbnb():
+    """
+    Route that returns 'HBNB'
+    """
+    return "HBNB!"
