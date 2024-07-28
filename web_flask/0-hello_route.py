@@ -2,8 +2,16 @@
 """
 A script to run the Flask web application.
 """
+from flask import Flask
 
-from web_flask import app
+app = Flask(__name__)
+
+@app.route('/', strict_slashes=False)
+def hello_hbnb():
+    """
+    Route that returns 'Hello HBNB!'
+    """
+    return "Hello HBNB!"
 
 
 if __name__ == '__main__':
