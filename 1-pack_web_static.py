@@ -1,11 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
  fabric script based on the task 0 file that creates and
  distributes as archive to the webservers
 """
 from fabric.api import *
 from datetime import datetime
-import os
 
 
 def do_pack():
@@ -18,18 +17,12 @@ def do_pack():
     otherwise returns None.
     """
     # Creates versions directory if it doesn't exist
-    if not os.path.exists("versions"):
-        os.makedirs("versions")
+    local('sudo mkdir -p versions')
 
-    # Generates the archive name
-    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    archive_name = "versions/web_static_{}.tgz".format(timestamp)
+    t = datetime.now()
+    t_str = t.strftime('%Y%m%d%H%M%S')
 
-    # Creates the archive
-    try:
-        print("Packing web_static to {}".format(archive_name))
-        local("tar -cvzf {} web_static".format(archive_name))
-        return archive_name
-    except Exception as e:
-        print("An error occurred while creating the archive: {}".format(e))
-        return None
+    local(f'sudo tar -cvzf versions/web_static_(t_str).tgz web_static')
+
+
+    

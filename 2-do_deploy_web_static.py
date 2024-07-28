@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Fabric script that distributes an archive to web servers
 """
@@ -9,7 +9,7 @@ import os
 # Update the env.hosts variable with your server details
 env.hosts = ['ubuntu@3.83.253.53', 'ubuntu@100.26.163.202']
 env.user = 'ubuntu'
-env.key_filename = '/root/.ssh/id_rsa'  # Use the correct path
+env.key_filename = '/root/.ssh/id_rsa'
 
 def do_deploy(archive_path):
     """
